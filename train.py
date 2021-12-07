@@ -4,7 +4,7 @@ import torch
 
 from config import cfg
 
-#------------prepare enviroment------------
+# ------------prepare enviroment------------
 seed = cfg.SEED
 if seed is not None:
     np.random.seed(seed)
@@ -18,7 +18,7 @@ if len(gpus)==1:
 torch.backends.cudnn.benchmark = True
 
 
-#------------prepare data loader------------
+# ------------prepare data loader------------
 data_mode = cfg.DATASET
 if data_mode is 'SHHA':
     from datasets.SHHA.loading_data import loading_data 
@@ -46,7 +46,7 @@ elif data_mode is 'UCSD':
     from datasets.UCSD.setting import cfg_data 
 
 
-#------------Prepare Trainer------------
+# ------------Prepare Trainer------------
 net = cfg.NET
 if net in ['MCNN', 'AlexNet', 'VGG', 'VGG_DECODER', 'Res50', 'Res101', 'CSRNet','Res101_SFCN']:
     from trainer import Trainer
@@ -57,7 +57,7 @@ elif net in ['CMTL']:
 # elif net in ['PCCNet']:
 #     from trainer_for_M3T3OCC import Trainer
 
-#------------Start Training------------
+# ------------Start Training------------
 pwd = os.path.split(os.path.realpath(__file__))[0]  # realpath返回脚本所在的绝对路径
 print(pwd)
 cc_trainer = Trainer(loading_data, cfg_data, pwd)

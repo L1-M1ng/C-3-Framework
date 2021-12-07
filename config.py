@@ -47,6 +47,7 @@ __C.PRINT_FREQ = 10
 
 now = time.strftime("%m-%d_%H-%M", time.localtime())
 
+# experiment saved name
 __C.EXP_NAME = now \
 				+ '_' + __C.DATASET \
 				+ '_' + __C.NET \

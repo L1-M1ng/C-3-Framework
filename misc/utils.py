@@ -65,15 +65,17 @@ def logger(exp_path, exp_name, work_dir, exception, resume=False):
         os.mkdir(exp_path)
     writer = SummaryWriter(exp_path+ '/' + exp_name)
     log_file = exp_path + '/' + exp_name + '/' + exp_name + '.txt'
-    
-    cfg_file = open('./config.py',"r")  
+
+    # read config parameter
+    cfg_file = open('./config.py',"r", encoding='utf-8')  # python默认是以gbk方式打开 encoding='utf-8' 指定打开格式
     cfg_lines = cfg_file.readlines()
     
     with open(log_file, 'a') as f:
         f.write(''.join(cfg_lines) + '\n\n\n\n')
 
-    if not resume:
-        copy_cur_env(work_dir, exp_path+ '/' + exp_name + '/code', exception)
+    # 复制工程文件至实验记录中
+    # if not resume:
+    #     copy_cur_env(work_dir, exp_path+ '/' + exp_name + '/code', exception)
 
 
     return writer, log_file
