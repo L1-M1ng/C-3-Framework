@@ -14,7 +14,7 @@ import pdb
 class Trainer():
     def __init__(self, dataloader, cfg_data, pwd):
 
-        self.cfg_data = cfg_data
+        self.cfg_data = cfg_data  #数据集配置数据
 
         self.data_mode = cfg.DATASET
         self.exp_name = cfg.EXP_NAME
@@ -49,6 +49,7 @@ class Trainer():
             self.exp_path = latest_state['exp_path']
             self.exp_name = latest_state['exp_name']
 
+        #logger 原代码定义的日志记录
         self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp', resume=cfg.RESUME)
 
 

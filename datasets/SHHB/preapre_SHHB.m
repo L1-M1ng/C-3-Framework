@@ -1,8 +1,8 @@
 clc; clear all;
-dataset = 'B';
+dataset = 'B';  % A or B
 standard_size = [768,1024];
 
-att = 'test';
+att = 'test';  % train or test
 
 dataset_name = ['shanghaitech_part_' dataset];
 path = ['../data/ShanghaiTech_Crowd_Detecting/part_' dataset '_final/' att '_data/images/'];
@@ -24,7 +24,7 @@ end
 
 for idx = 1:num_images
     i = idx;
-    if (mod(idx,10)==0)
+    if (mod(idx,10)==0)  %每10个循环输出一次信息
         fprintf(1,'Processing %3d/%d files\n', idx, num_images);
     end
     load(strcat(gt_path, 'GT_IMG_',num2str(i),'.mat')) ;

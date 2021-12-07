@@ -54,10 +54,11 @@ elif net in ['SANet']:
     from trainer_for_M2TCC import Trainer # double losses but signle output
 elif net in ['CMTL']: 
     from trainer_for_CMTL import Trainer # double losses and double outputs
-elif net in ['PCCNet']:
-    from trainer_for_M3T3OCC import Trainer
+# elif net in ['PCCNet']:
+#     from trainer_for_M3T3OCC import Trainer
 
 #------------Start Training------------
-pwd = os.path.split(os.path.realpath(__file__))[0]
-cc_trainer = Trainer(loading_data,cfg_data,pwd)
+pwd = os.path.split(os.path.realpath(__file__))[0]  # realpath返回脚本所在的绝对路径
+print(pwd)
+cc_trainer = Trainer(loading_data, cfg_data, pwd)
 cc_trainer.forward()
